@@ -2,19 +2,21 @@ import { useEffect, useState } from 'react';
 import { getPokemon } from '../helpers/getPokemon';
 
 export const useFetchData = (search) => {
-  const [images, setImages] = useState([]);
+  console.log('busqueda papi', search);
+  const [resultados, setResultados] = useState();
 
   const [isLoading, setIsLoading] = useState(true);
 
   const getData = async () => {
-    const newImgs = await getPokemon(search);
-    setImages(newImgs);
-    setIsLoading(false);
+    const data = await getPokemon(search);
+    console.log('data', data);
+    // setResultados(newImgs);
+    // setIsLoading(false);
   };
 
   useEffect(() => {
     getData();
   }, []);
 
-  return { images, isLoading };
+  return { pokemons, isLoading };
 };

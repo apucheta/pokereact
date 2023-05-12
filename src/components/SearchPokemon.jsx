@@ -1,10 +1,13 @@
-/* eslint-disable react/prop-types */
 import { useState } from 'react';
+import { Input, InputGroup, InputLeftAddon } from '@chakra-ui/react';
+import { InputLeftElement } from '@chakra-ui/react';
+import { Search2Icon } from '@chakra-ui/icons';
 
 export const SearchPokemon = ({ newPokemon }) => {
   const [search, setSearch] = useState('');
 
   const handleSearch = (event) => {
+    console.log(event.target.value);
     setSearch(event.target.value);
   };
 
@@ -19,12 +22,17 @@ export const SearchPokemon = ({ newPokemon }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <input
-        type='text'
-        placeholder='Buscar pokemon'
-        onChange={handleSearch}
-        value={search}
-      />
+      <InputGroup>
+        <InputLeftElement>
+          <Search2Icon color='gray.300' />
+        </InputLeftElement>
+        <Input
+          type='text'
+          placeholder='Buscar pokemon'
+          onChange={handleSearch}
+          value={search}
+        />
+      </InputGroup>
     </form>
   );
 };
