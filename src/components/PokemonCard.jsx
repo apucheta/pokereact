@@ -1,38 +1,22 @@
-import {
-  Stack,
-  Heading,
-  Text,
-  Card,
-  CardHeader,
-  CardBody,
-  Image,
-  CardFooter,
-} from '@chakra-ui/react';
+import { Card } from '@chakra-ui/react';
 import { useFetchData } from '../hooks/useFetchData';
+import { PokemonItem } from './PokemonItem';
 
-export const PokemonCard = () => {
-  //   const { isLoading, resultados } = useFetchData(pokemon);
-  return (
-    <Card mt='5' maxW='sm'>
-      <CardBody>
-        <Image
-          src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80'
-          alt='imagen'
-          borderRadius='md'
-        />
-
-        <Stack mt='6' spacing='3'>
-          <Heading size='md'>Living room Sofa</Heading>
-          <Text>
-            This sofa is perfect for modern tropical spaces, baroque inspired
-            spaces, earthy toned spaces and for people who love a chic design
-            with a sprinkle of vintage design.
-          </Text>
-          <Text color='blue.600' fontSize='2xl'>
-            $450
-          </Text>
-        </Stack>
-      </CardBody>
-    </Card>
-  );
+export const PokemonCard = ({ pokemon }) => {
+  const { resultados, isLoading } = useFetchData(pokemon);
+  console.log('soy el pokemon', pokemon);
+  console.log('soy un resultado', resultados);
+  // {resultados.sprites.other['official-artwork']}
+  console.log('tipos', resultados?.types);
+  const copia = resultados;
+  console.log(copia);
+  if (resultados !== undefined) {
+    return (
+      <>
+        <Card mt='5' maxW='sm'>
+          <PokemonItem pokemon={copia} />
+        </Card>
+      </>
+    );
+  }
 };

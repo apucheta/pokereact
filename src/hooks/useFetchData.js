@@ -10,13 +10,14 @@ export const useFetchData = (search) => {
   const getData = async () => {
     const data = await getPokemon(search);
     console.log('data', data);
-    // setResultados(newImgs);
-    // setIsLoading(false);
+    setResultados(data);
+    setIsLoading(false);
   };
 
   useEffect(() => {
     getData();
   }, []);
+  console.log('resultados dentro de hook', resultados);
 
-  return { pokemons, isLoading };
+  return { resultados, isLoading };
 };

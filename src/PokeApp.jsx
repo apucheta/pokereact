@@ -6,7 +6,7 @@ import { CircularProgress, Heading, SimpleGrid } from '@chakra-ui/react';
 import { PokemonCard } from './components/PokemonCard';
 
 export const PokeApp = () => {
-  const [anteriores, setAnteriores] = useState([]);
+  const [anteriores, setAnteriores] = useState(['pichu']);
 
   const OnNewPokemon = (pkm) => {
     if (!anteriores.includes(pkm)) {
@@ -27,14 +27,11 @@ export const PokeApp = () => {
       {/* {isLoading && (
         <CircularProgress isIndeterminate color={`${array[2]}.800`} />
       )} */}
-      {anteriores.map((pkm) => (
-        <SimpleGrid
-          spacing={4}
-          templateColumns='repeat(auto-fill, minmax(200px, 1fr))'
-        >
-          <PokemonCard></PokemonCard>
-        </SimpleGrid>
-      ))}
+      <SimpleGrid spacing={4} columns={3}>
+        {anteriores.map((pkm) => (
+          <PokemonCard key={pkm} pokemon={pkm}></PokemonCard>
+        ))}
+      </SimpleGrid>
     </>
   );
 };
