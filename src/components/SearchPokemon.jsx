@@ -21,7 +21,7 @@ export const SearchPokemon = ({ newPokemon }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <InputGroup bg={'#523961'} mt={2} ml={2}>
+      <InputGroup bg={'#523961'} mt={2} ml={2} width={'99%'}>
         <InputLeftElement>
           <Search2Icon color='whiteAlpha.700' />
         </InputLeftElement>

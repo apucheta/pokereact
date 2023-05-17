@@ -39,7 +39,7 @@ export const PokeApp = () => {
       {/* {isLoading && (
         <CircularProgress isIndeterminate color={`${array[2]}.800`} />
       )} */}
-      <SimpleGrid spacing={4} columns={3}>
+      <SimpleGrid spacing={4} columns={[1, 2, 3, 4]}>
         {anteriores.map((pkm) => (
           <PokemonCard key={pkm} pokemon={pkm}></PokemonCard>
         ))}
