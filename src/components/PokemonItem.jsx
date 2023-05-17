@@ -17,12 +17,18 @@ export const PokemonItem = ({ pokemon }) => {
       />
 
       <Stack direction='column'>
-        <Heading size='md' mb={2} textTransform='capitalize'>
+        <Heading size='md' mb={2} textTransform='capitalize' color={'white'}>
           {pokemon.name}
         </Heading>
         <Divider />
         <Stack direction='row'>
-          <Text mt={2} fontSize='sm' width='40%' textAlign='center'>
+          <Text
+            mt={2}
+            fontSize='sm'
+            width='40%'
+            textAlign='left'
+            color={'white'}
+          >
             {pokemon.desc}
           </Text>
           <Divider
@@ -31,11 +37,16 @@ export const PokemonItem = ({ pokemon }) => {
             variant='solid'
             width='20%'
           />
-          <Text mt={2} fontSize='sm' width='40%' textAlign='center'>
-            {`Altura: ${pokemon.height / 10} m`}
-            <br />
-            {`Peso: ${pokemon.weight / 10} kg`}
-          </Text>
+          <Stack color={'white'}>
+            <Heading size={'sm'} mt={2}>
+              Altura:
+            </Heading>
+            <Text>{pokemon.height / 10} m</Text>
+            <Heading size={'sm'} mt={2}>
+              Peso:
+            </Heading>
+            <Text>{pokemon.weight / 10} kg</Text>
+          </Stack>
         </Stack>
       </Stack>
     </CardBody>

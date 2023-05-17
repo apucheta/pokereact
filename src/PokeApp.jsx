@@ -2,7 +2,12 @@ import { useState } from 'react';
 import { SearchPokemon } from './components/SearchPokemon';
 import { PokemonItem } from './components/PokemonItem';
 
-import { CircularProgress, Heading, SimpleGrid } from '@chakra-ui/react';
+import {
+  CircularProgress,
+  Divider,
+  Heading,
+  SimpleGrid,
+} from '@chakra-ui/react';
 import { PokemonCard } from './components/PokemonCard';
 
 export const PokeApp = () => {
@@ -18,11 +23,18 @@ export const PokeApp = () => {
 
   const array = ['blue', 'red', 'orange', 'green'];
   return (
-    <>
-      <Heading as='h1' size='4xl'>
+    <div className='fondo'>
+      <Heading
+        as='h1'
+        size='4xl'
+        mb={2}
+        ml={2}
+        bg='#3b234a'
+        color={'whiteAlpha.700'}
+      >
         Pokedex con React
       </Heading>
-      <br />
+      <Divider />
       <SearchPokemon newPokemon={OnNewPokemon} />
       {/* {isLoading && (
         <CircularProgress isIndeterminate color={`${array[2]}.800`} />
@@ -32,6 +44,6 @@ export const PokeApp = () => {
           <PokemonCard key={pkm} pokemon={pkm}></PokemonCard>
         ))}
       </SimpleGrid>
-    </>
+    </div>
   );
 };
