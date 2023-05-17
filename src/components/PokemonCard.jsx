@@ -7,13 +7,12 @@ export const PokemonCard = ({ pokemon }) => {
   console.log('soy el pokemon', pokemon);
   console.log('soy un resultado', resultados);
   // {resultados.sprites.other['official-artwork']}
-  console.log('tipos', resultados?.types);
   const copia = resultados;
   console.log(copia);
   if (resultados !== undefined) {
     return (
       <>
-        <Card mt='5' maxW='sm'>
+        <Card mt='5' maxW='sm' bg='white'>
           <PokemonItem pokemon={copia} />
         </Card>
       </>

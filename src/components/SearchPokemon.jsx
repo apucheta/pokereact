@@ -22,14 +22,18 @@ export const SearchPokemon = ({ newPokemon }) => {
   return (
     <form onSubmit={handleSubmit}>
       <InputGroup>
-        <InputLeftElement>
-          <Search2Icon color='gray.300' />
+        <InputLeftElement color='white'>
+          <Search2Icon color='white.700' />
         </InputLeftElement>
         <Input
           type='text'
           placeholder='Buscar pokemon'
           onChange={handleSearch}
           value={search}
+          bg='white.700'
+          color='white'
+          colorScheme='gray'
+          variant='outline'
         />
       </InputGroup>
     </form>
